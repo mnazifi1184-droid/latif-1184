@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}ورود فایل اکسل{% endblock %}
+{% block content %}
+<h1>ورود فایل اکسل</h1>
+<form method="post" enctype="multipart/form-data" class="card">
+  {% csrf_token %}
+  <div class="field">
+    <label for="{{ form.file.id_for_label }}">{{ form.file.label }}</label>
+    <input type="file" name="file" id="{{ form.file.id_for_label }}" accept=".xlsx" required>
+    {{ form.file.errors }}
+    <p class="help">ردیف اول فایل باید این سه عنوان را داشته باشد: «کد کالا»، «نام کالا»، «موجودی».
+      اگر کدی از قبل وجود داشته باشد، نام و موجودی‌اش بروزرسانی می‌شود.</p>
+  </div>
+  <button class="btn" type="submit">بارگذاری و ثبت</button>
+  <a class="btn secondary" href="{% url 'dashboard' %}">بازگشت</a>
+</form>
+{% endblock %}

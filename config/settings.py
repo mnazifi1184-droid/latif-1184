@@ -126,3 +126,14 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+
+# ---- تنظیمات اضافه‌شده برای اپ موجودی ----
+STATICFILES_DIRS = [BASE_DIR / "static"]      # پوشه‌ی فایل‌های ثابت (فونت، CSS)
+
+LOGIN_URL = "login"                # کاربر لاگین‌نکرده به این صفحه فرستاده می‌شود
+LOGIN_REDIRECT_URL = "dashboard"   # بعد از لاگین موفق به داشبورد برود
+LOGOUT_REDIRECT_URL = "login"      # بعد از خروج به صفحه‌ی ورود برگردد
+
+# برای کار کردن فرم‌ها پشت آدرس پیش‌نمایش (فقط توسعه)
+CSRF_TRUSTED_ORIGINS = ["https://*.hooshacode.com"]

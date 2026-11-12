@@ -1,0 +1,30 @@
+{% load static %}<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}مدیریت موجودی{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+</head>
+<body>
+  {% block body %}
+  <header class="topbar">
+    <a class="brand" href="{% url 'dashboard' %}">مدیریت موجودی</a>
+    <div>
+      {{ request.user.username }}
+      <form method="post" action="{% url 'logout' %}">{% csrf_token %}
+        <button class="link-btn" type="submit">خروج</button>
+      </form>
+    </div>
+  </header>
+  <main class="container">
+    {% if messages %}
+    <ul class="messages">
+      {% for m in messages %}<li class="{{ m.tags }}">{{ m }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+  {% endblock %}
+</body>
+</html>

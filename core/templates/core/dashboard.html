@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}داشبورد{% endblock %}
+{% block content %}
+<h1>داشبورد</h1>
+
+<section class="stats">
+  <div class="card stat"><div class="label">تعداد کالاها</div><div class="value">{{ product_count }}</div></div>
+  <div class="card stat"><div class="label">جمع کل موجودی</div><div class="value">{{ total_quantity }}</div></div>
+</section>
+
+<section class="actions">
+  <a class="card action" href="{% url 'import_excel' %}">
+    <h2>ورود فایل اکسل</h2>
+    <p>فایل اکسل موجودی را بارگذاری کنید تا کالاها اضافه یا بروزرسانی شوند.</p>
+  </a>
+  <a class="card action" href="{% url 'inventory' %}">
+    <h2>مشاهده موجودی</h2>
+    <p>فهرست کالاها و موجودی هرکدام را ببینید و جست‌وجو کنید.</p>
+  </a>
+</section>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}ورود{% endblock %}
+{% block body %}
+<div class="login-wrap">
+  <form method="post" class="card login-card">
+    {% csrf_token %}
+    <h1>ورود به سامانه</h1>
+    {% if form.non_field_errors %}
+      <ul class="errorlist">{% for e in form.non_field_errors %}<li>نام کاربری یا رمز عبور اشتباه است.</li>{% endfor %}</ul>
+    {% endif %}
+    <div class="field">
+      <label for="{{ form.username.id_for_label }}">نام کاربری</label>
+      <input type="text" name="username" id="{{ form.username.id_for_label }}" autocomplete="username" autofocus required dir="ltr">
+    </div>
+    <div class="field">
+      <label for="{{ form.password.id_for_label }}">رمز عبور</label>
+      <input type="password" name="password" id="{{ form.password.id_for_label }}" autocomplete="current-password" required dir="ltr">
+    </div>
+    <input type="hidden" name="next" value="{{ next }}">
+    <button class="btn" type="submit" style="width:100%">ورود</button>
+  </form>
+</div>
+{% endblock %}

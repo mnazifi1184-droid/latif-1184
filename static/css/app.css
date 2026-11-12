@@ -1,0 +1,68 @@
+@font-face { font-family: "Vazirmatn"; src: url("../fonts/Vazirmatn-Regular.ttf"); font-weight: 400; }
+@font-face { font-family: "Vazirmatn"; src: url("../fonts/Vazirmatn-Bold.ttf"); font-weight: 700; }
+
+:root {
+  --ink: #1d2b36; --muted: #5d6b76; --line: #dde3e8;
+  --bg: #f3f5f7; --card: #fff;
+  --brand: #14506b; --brand-dark: #0d3a50; --accent: #d9822b;
+  --ok: #1d7a4a; --warn: #9a6200; --err: #b3261e;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Vazirmatn", Tahoma, sans-serif; background: var(--bg);
+       color: var(--ink); line-height: 1.8; }
+a { color: var(--brand); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.topbar { background: var(--brand); color: #fff; display: flex; align-items: center;
+          justify-content: space-between; padding: .6rem 1.5rem; }
+.topbar a { color: #fff; text-decoration: none; }
+.topbar .brand { font-weight: 700; font-size: 1.1rem; }
+.topbar form { display: inline; margin: 0; }
+.link-btn { background: none; border: 1px solid #ffffff80; color: #fff; padding: .25rem .9rem;
+            border-radius: 6px; font: inherit; cursor: pointer; }
+.link-btn:hover { background: #ffffff22; }
+
+.container { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+h1 { font-size: 1.5rem; margin: 0 0 1rem; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.25rem; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.stat .label { color: var(--muted); font-size: .85rem; }
+.stat .value { font-size: 1.8rem; font-weight: 700; }
+
+.actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.action { display: block; text-decoration: none; color: var(--ink); border-inline-start: 5px solid var(--accent); }
+.action:hover { border-color: var(--brand); border-inline-start-color: var(--accent); }
+.action h2 { margin: 0 0 .3rem; font-size: 1.15rem; color: var(--brand); }
+.action p { margin: 0; color: var(--muted); font-size: .92rem; }
+
+label { display: block; font-weight: 700; margin-bottom: .3rem; }
+input[type=text], input[type=password], input[type=file], input[type=search] {
+  width: 100%; padding: .6rem .75rem; border: 1px solid #b9c3cb; border-radius: 6px; font: inherit; background: #fff; }
+.field { margin-bottom: 1rem; }
+.btn { background: var(--brand); color: #fff; border: 0; padding: .6rem 1.4rem; border-radius: 6px;
+       font: inherit; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; }
+.btn:hover { background: var(--brand-dark); }
+.btn.secondary { background: #fff; color: var(--brand); border: 1px solid var(--brand); }
+.errorlist { list-style: none; margin: .3rem 0 0; padding: 0; color: var(--err); font-size: .9rem; }
+.help { color: var(--muted); font-size: .88rem; }
+
+.messages { list-style: none; padding: 0; margin: 0 0 1rem; }
+.messages li { padding: .6rem .9rem; border-radius: 6px; margin-bottom: .4rem; border: 1px solid; }
+.messages .success { background: #e8f5ee; border-color: #a9d7bd; color: var(--ok); }
+.messages .warning { background: #fff4de; border-color: #ecce91; color: var(--warn); }
+.messages .error { background: #fdeceb; border-color: #f0b5b1; color: var(--err); }
+
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { padding: .6rem .8rem; border-bottom: 1px solid var(--line); text-align: start; }
+th { background: #eaf0f4; }
+td.num, th.num { text-align: end; }
+.low { color: var(--err); font-weight: 700; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+.empty { text-align: center; padding: 2rem; color: var(--muted); }
+.search { display: flex; gap: .5rem; margin-bottom: 1rem; }
+
+.login-wrap { min-height: 100vh; display: grid; place-items: center; padding: 1rem; }
+.login-card { width: 100%; max-width: 380px; }
+.login-card h1 { text-align: center; color: var(--brand); }
+@media (prefers-reduced-motion: no-preference) { .btn, .action { transition: all .15s; } }
